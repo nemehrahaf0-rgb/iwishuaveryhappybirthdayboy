@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>I wish you a very happy birthday boy</title>
+<meta property="og:title" content="I wish you a very happy birthday boy">
+<meta property="og:description" content="SKULLGUN — The Birth of a Legend">
+<meta name="description" content="SKULLGUN — The Birth of a Legend">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,800;125,900&family=Space+Mono:wght@400;700&family=Noto+Serif+JP:wght@900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0a0a0a;--paper:#d6d5d2;--paper2:#e6e5e2;--orange:#c2570f}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#1b1b1b;color:var(--ink);font-family:'Space Mono',monospace;overflow-x:hidden}
+/* ===== sheets (A4 portrait) ===== */
+.sheet{container-type:inline-size;position:relative;width:min(96vw,820px);aspect-ratio:1/1.414;margin:34px auto;background:#fff;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.6)}
+.sheet::after{content:"";position:absolute;inset:0;pointer-events:none;z-index:50;opacity:.2;mix-blend-mode:multiply;
+ background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.95' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -.55'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.sheet>img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.sheet>img.bg.keepcolor{filter:none}
+.lay{position:absolute;inset:4cqw 4cqw 5cqw 4cqw;display:grid;gap:1.4cqw;min-height:0}
+.folio{position:absolute;bottom:1.4cqw;left:4cqw;right:4cqw;display:flex;justify-content:space-between;font:700 1cqw 'Space Mono';letter-spacing:.14em;text-transform:uppercase;z-index:6}
+/* text layers (all editable, positioned over the art) */
+.nb{position:absolute;z-index:5;background:var(--paper2);border:.3cqw solid var(--ink);padding:.7cqw 1cqw;font:800 1.2cqw/1.4 Archivo,sans-serif;font-stretch:125%;text-transform:uppercase;letter-spacing:.02em;box-shadow:.35cqw .35cqw 0 rgba(0,0,0,.55)}
+.nb.dk{background:var(--ink);color:var(--paper2);border-color:var(--paper2)}
+.nb.ui{font-family:'Space Mono';font-stretch:100%;letter-spacing:.12em}
+.nb.hdr{font-size:1.5cqw;padding:.9cqw 1.3cqw;letter-spacing:.08em}
+.bub{position:absolute;z-index:5;background:#f4f3f0;border:.3cqw solid var(--ink);border-radius:50%/42%;padding:1cqw 1.6cqw;text-align:center;font:800 1.15cqw/1.25 Archivo,sans-serif;font-stretch:125%;text-transform:uppercase}
+.bub.sq{border-radius:.4cqw}
+.sfx{position:absolute;z-index:6;font:900 5.2cqw/.85 Archivo,Impact;font-stretch:125%;color:var(--paper2);-webkit-text-stroke:.35cqw var(--ink);paint-order:stroke fill;text-shadow:.45cqw .45cqw 0 var(--ink);text-transform:uppercase;cursor:pointer}
+.sfx.re{animation:slam .35s cubic-bezier(.2,2,.4,1)}
+@keyframes slam{from{transform:scale(2) rotate(-8deg);opacity:0}}
+.ttl{position:absolute;z-index:6;font:900 8.2cqw/.84 Archivo,Impact;font-stretch:125%;text-transform:uppercase;letter-spacing:-.03em;color:var(--paper2);-webkit-text-stroke:.55cqw var(--ink);paint-order:stroke fill;text-shadow:.7cqw .7cqw 0 var(--ink)}
+.jp{position:absolute;z-index:6;font:900 3cqw/1.05 'Noto Serif JP',serif;color:var(--paper2);-webkit-text-stroke:.3cqw var(--ink);paint-order:stroke fill}
+
+.pn{position:absolute;border:.45cqw solid var(--ink);overflow:hidden;background:#fff}.pn img{width:100%;height:100%;object-fit:cover;display:block}
+.wf{position:absolute;border:.45cqw solid var(--ink);background:#f1f1f1;overflow:hidden;background-image:repeating-linear-gradient(135deg,transparent 0 1.4cqw,rgba(10,10,10,.12) 1.4cqw 1.5cqw)}
+.wf i{position:absolute;top:.8cqw;right:.8cqw;max-width:60%;font:700 .85cqw/1.4 'Space Mono';font-style:normal;text-transform:uppercase;letter-spacing:.06em;text-align:right;background:#fff;border:.2cqw dashed var(--ink);padding:.5cqw .7cqw;opacity:.85}
+.chip{position:absolute;z-index:7;background:var(--ink);color:#fff;font:800 1.05cqw 'Space Mono';letter-spacing:.14em;text-transform:uppercase;padding:.55cqw 1cqw}
+.sub{position:absolute;z-index:6;font:900 2.1cqw Archivo,Impact;font-stretch:125%;text-transform:uppercase;letter-spacing:.12em;background:var(--ink);color:#fff;padding:.5cqw 1cqw}
+.emph{position:absolute;z-index:6;background:var(--ink);color:#fff;border:.35cqw solid #fff;padding:1.2cqw 1.4cqw;font:900 1.9cqw/1.25 Archivo,Impact;font-stretch:125%;text-transform:uppercase;box-shadow:.4cqw .4cqw 0 rgba(0,0,0,.5)}
+.emph span{display:block}.emph em{font-style:normal;color:#e08a45}
+.parch{background:#f3f2ef;border-style:double;border-width:.5cqw}
+.qcard{position:absolute;z-index:6;background:#fff;border:.5cqw solid var(--ink);padding:1.1cqw;display:flex;flex-direction:column;gap:.7cqw;box-shadow:.5cqw .5cqw 0 rgba(0,0,0,.6)}
+.qcard .qt{background:var(--ink);color:#fff;font:800 1.05cqw 'Space Mono';letter-spacing:.2em;text-align:center;padding:.5cqw;text-transform:uppercase}
+.qcard h3{font:900 4.1cqw/.9 Archivo,Impact;font-stretch:125%;text-transform:uppercase;text-align:center;border-bottom:.3cqw solid var(--ink);padding-bottom:.6cqw}
+.qcard h3 b{color:var(--orange)}
+.qcard .k{font:700 .78cqw/1.45 'Space Mono';letter-spacing:.08em;text-transform:uppercase}
+.qcard .k b{font:900 .95cqw Archivo;font-stretch:125%;display:block;letter-spacing:.08em;border-bottom:.15cqw solid var(--ink);margin-bottom:.2cqw}
+.qcard .k li{margin:.15cqw 0 .15cqw 1.2cqw}
+.qcard .st{display:grid;grid-template-columns:1fr 1fr;gap:.3cqw}
+.qcard .st div{border:.2cqw solid var(--ink);padding:.35cqw .5cqw;font:700 .72cqw/1.3 'Space Mono';text-transform:uppercase}
+.qcard .hint{border:.25cqw dashed var(--ink);padding:.5cqw .6cqw;font:700 .74cqw/1.45 'Space Mono';text-transform:uppercase;background:#f3f2ef}
+.qcard.big .k{font-size:.98cqw}.qcard.big .k b{font-size:1.1cqw}.qcard.big .st div{font-size:.88cqw}.qcard.big .hint{font-size:.9cqw}.qcard.big .qt{font-size:1.1cqw}.qcard.big h3{font-size:3.6cqw}
+.ded{position:absolute;z-index:6;background:#fff;border:.3cqw solid var(--ink);padding:.8cqw 1.4cqw;font:400 1.25cqw/1.55 'Space Mono'}
+.ded b{font:900 1.35cqw Archivo;font-stretch:125%;text-transform:uppercase}
+.tbc{position:absolute;z-index:6;font:900 3.2cqw Archivo,Impact;font-stretch:125%;color:#fff;-webkit-text-stroke:.3cqw var(--ink);paint-order:stroke fill;text-shadow:.35cqw .35cqw 0 var(--ink);text-transform:uppercase}
+/* quest sheet */
+.quest{background:var(--paper)}
+.l6{grid-template-rows:auto auto auto minmax(0,1fr) auto auto}
+.chh{display:flex;align-items:flex-end;gap:1.6cqw;border-bottom:.5cqw solid var(--ink);padding-bottom:1cqw}
+.chh .n{font:900 1.7cqw Archivo;font-stretch:125%;background:var(--ink);color:var(--paper);padding:.6cqw 1.2cqw;white-space:nowrap;text-transform:uppercase}
+.chh h2{font:900 3.6cqw/.9 Archivo;font-stretch:125%;text-transform:uppercase;letter-spacing:-.02em}
+.bigq{font:900 12cqw/.84 Archivo,Impact;font-stretch:125%;text-transform:uppercase;letter-spacing:-.03em}
+.qhead{font:800 1.15cqw 'Space Mono';letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;border-bottom:.3cqw solid var(--ink);padding-bottom:.5cqw}
+.relics{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:repeat(2,minmax(0,1fr));gap:1cqw;min-height:0}
+.rbtn{border:.35cqw solid var(--ink);background:var(--paper2);cursor:pointer;padding:.5cqw;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.8cqw;font:900 2.2cqw Archivo;font-stretch:125%;transition:.12s;color:var(--ink)}
+.rbtn svg{height:12cqw;width:auto;flex:none}
+.rbtn:hover,.rbtn.sel{background:var(--ink);color:var(--paper)}
+.rbtn.sel svg{filter:invert(1)}
+.info{border:.45cqw solid var(--ink);background:var(--paper2);padding:1.4cqw;display:flex;flex-direction:column;justify-content:space-between;gap:1cqw;min-height:0}
+.info h4{font:900 2.2cqw Archivo;font-stretch:125%;text-transform:uppercase}
+.info p{font:700 1.2cqw/1.6 'Space Mono';text-transform:uppercase;letter-spacing:.05em}
+.seals{display:flex;align-items:center;gap:1cqw;font:700 1cqw 'Space Mono';letter-spacing:.12em;text-transform:uppercase}
+.seal{width:4cqw;height:4cqw;border-radius:50%;border:.35cqw solid var(--ink);background:var(--ink);color:var(--paper);font:900 1.6cqw Archivo;cursor:pointer;transition:.25s}
+.seal.broken{background:transparent;color:var(--ink);border-style:dashed;transform:rotate(25deg) scale(.9);text-decoration:line-through}
+.end5{display:flex;justify-content:space-between;align-items:flex-end;gap:2cqw}
+.end5 .big{font:900 3.1cqw/.9 Archivo;font-stretch:125%;text-transform:uppercase}
+.end5 .dd{font:700 .95cqw/1.5 'Space Mono';text-transform:uppercase;letter-spacing:.06em;max-width:46%;text-align:right}
+/* floating nav */
+#ui{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:500;display:flex;border:3px solid var(--paper);background:var(--ink);color:var(--paper)}
+#ui button{font:700 12px 'Space Mono';letter-spacing:.1em;background:transparent;color:var(--paper);border:0;border-right:3px solid var(--paper);padding:8px 13px;cursor:pointer}
+#ui button:last-child{border:0}
+#ui button:hover,#ui button.on{background:var(--paper);color:var(--ink)}
+#bar{position:fixed;top:0;left:0;height:4px;background:var(--paper);width:0;z-index:600}
+@media(max-width:560px){.nb{font-size:max(5.6px,1.2cqw)}}
+
+/* ===== mobile ===== */
+#zoom{display:none;position:fixed;inset:0;z-index:900;background:#0a0a0a;overflow:auto;-webkit-overflow-scrolling:touch}
+#zoom.on{display:block}
+#zoom .sheet{width:200vw;margin:50px 0 30px;box-shadow:none}
+#zx{position:fixed;top:8px;right:8px;z-index:950;display:none;background:#fff;color:#0a0a0a;border:3px solid #0a0a0a;font:800 14px 'Space Mono';padding:10px 16px}
+#zoom.on~#zx{display:block}
+.tip{display:none}
+@media(max-width:600px){
+ .sheet{width:100vw;margin:14px 0;box-shadow:none}
+ body{padding-bottom:70px}
+ .tip{display:block;text-align:center;color:#d6d5d2;font:700 12px 'Space Mono';letter-spacing:.12em;text-transform:uppercase;padding:14px 12px 0}
+ .sheet:not(.quest){cursor:zoom-in}
+ #ui{bottom:max(10px,env(safe-area-inset-bottom));max-width:96vw}
+ #ui button{padding:12px 13px;font-size:13px}
+ .quest{aspect-ratio:auto;padding:18px 16px 22px}
+ .quest .lay{position:static;display:flex;flex-direction:column;gap:16px}
+ .chh .n{font-size:11px;padding:6px 10px}.chh h2{font-size:22px}
+ .bigq{font-size:16vw}.qhead{font-size:11px;gap:8px;flex-wrap:wrap}
+ .relics{grid-template-columns:repeat(2,1fr);grid-template-rows:none;gap:10px}
+ .rbtn{font-size:18px;padding:12px;gap:8px}.rbtn svg{height:84px}
+ .info{padding:16px;gap:14px}.info h4{font-size:19px}.info p{font-size:14px;line-height:1.6}
+ .seals{flex-wrap:wrap;font-size:11px;gap:10px}.seal{width:48px;height:48px;font-size:18px}
+ .end5{flex-direction:column;align-items:flex-start;gap:12px}.end5 .big{font-size:20px}.end5 .dd{font-size:12px;max-width:100%;text-align:left}
+}
+@media print{
+ @page{size:A4;margin:0}
+ body{background:#fff}#ui,#bar{display:none}
+ .sheet{width:210mm;height:297mm;margin:0;box-shadow:none;break-after:page;aspect-ratio:auto}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <pattern id="h1" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#0a0a0a" stroke-width="1.7"/></pattern>
+  <symbol id="relic" viewBox="0 0 60 84">
+    <rect x="6" y="6" width="48" height="72" fill="#e8e7e4" stroke="#0a0a0a" stroke-width="3.5"/>
+    <rect x="6" y="6" width="48" height="16" fill="url(#h1)"/>
+    <rect x="6" y="24" width="48" height="28" fill="#0a0a0a"/>
+    <path d="M30 29L33 38H43L35 43L38 51L30 46L22 51L25 43L17 38H27Z" fill="#e8e7e4"/>
+    <path d="M6 58L54 58M6 66L54 66" stroke="#0a0a0a" stroke-width="1.6"/>
+  </symbol>
+</defs></svg>
+
+<div class="tip">Tap any page to zoom in</div>
+<article class="sheet" id="s1" data-art="p1">
+  <div class="ttl" style="left:55%;top:5%;font-size:5.1cqw">SKULLGUN</div>
+  <div class="sub" style="left:55%;top:11%;font-size:1.65cqw">The Birth of a Legend</div>
+  <div class="nb" style="left:29%;top:29.6%;max-width:34%">In an age when men fought for crowns, kingdoms and eternal glory, there wandered a man who desired none of them.</div>
+  <div class="nb dk" style="left:56%;top:19.6%;max-width:38%">He fell in love with an ancient drawing of a skull and a gun, so they called him Skullgun. A man of few words, yet a mind that rarely rested.</div>
+  <div class="nb dk" style="left:44.5%;top:60.2%;max-width:31%">He possessed the qualities of a king, without the slightest desire to become one.</div>
+  <div class="nb" style="left:64.5%;top:72.6%;max-width:30%">His ambition was not to become greater than others, but greater than the man he was yesterday.</div>
+  <div class="sfx" style="left:60%;top:89.5%;font-size:4.2cqw;transform:rotate(-7deg)">SHKKKK!</div>
+</article>
+
+<article class="sheet" id="s2" data-art="p2">
+  <div class="nb" style="left:40%;top:8%;max-width:28%">Throughout his travels, he encountered mysteries that had occupied the minds of scholars for generations.</div>
+  <div class="nb parch" style="left:4.4%;top:21.4%;max-width:27%">Only the worthy shall unravel the order within chaos.</div>
+  <div class="bub" style="left:77%;top:47.4%;max-width:15%">That's it?</div>
+  <div class="nb" style="left:4.4%;top:87.6%;max-width:34%">Where others saw chaos, he saw structure. Where others saw impossibility, he saw a problem waiting to be understood.</div>
+  <div class="bub" style="left:72%;top:81.6%;max-width:21%">Tutorial completed.</div>
+  <div class="sfx" style="left:38%;top:63.5%;font-size:3.6cqw;transform:rotate(-6deg)">KLIK-KLAK!</div>
+</article>
+
+<article class="sheet" id="s3" data-art="p3"><div class="fg"><div class="pn" style="left:4%;top:3%;width:92%;height:24%"><img src="img/f1.jpg" alt=""></div><div class="pn" style="left:4%;top:28%;width:30%;height:17%"><img src="img/f2a.jpg" alt=""></div><div class="pn" style="left:35%;top:28%;width:30%;height:17%"><img src="img/f2b.jpg" alt=""></div><div class="pn" style="left:66%;top:28%;width:30%;height:17%"><img src="img/f2c.jpg" alt=""></div><div class="pn" style="left:4%;top:46%;width:92%;height:26%"><img src="img/f3.jpg" alt=""></div><div class="pn" style="left:4%;top:73%;width:52%;height:24%"><img src="img/f4.jpg" alt=""></div><div class="pn" style="left:57%;top:73%;width:39%;height:24%"><img src="img/f5.jpg" alt=""></div></div>
+  <div class="bub" style="left:8%;top:9.5%;max-width:30%">Do you truly believe you possess the strength to defeat me?</div>
+  <div class="bub" style="left:58%;top:18%;max-width:30%">I believe you've misunderstood strength.</div>
+  <div class="nb dk" style="left:4.6%;top:39.6%;max-width:56%">Patience was his advantage. Knowledge was his weapon. And stubbornness, on occasion, was both.</div>
+  <div class="nb" style="left:5%;top:89.6%;max-width:46%">He never confused victory with cruelty, nor power with the right to exercise it.</div>
+  <div class="emph" style="left:57.8%;top:75.6%;width:37%"><span>Knowledge guided his mind.</span><span>Faith guided his soul.</span><span><em>And his heart determined what he did with both.</em></span></div>
+  <div class="sfx" style="left:57%;top:49.5%;font-size:4.4cqw;transform:rotate(-8deg)">SKRRRRK!</div>
+  <div class="sfx" style="left:41%;top:74.5%;font-size:3.4cqw;transform:rotate(6deg)">KLINK</div>
+</article>
+
+<article class="sheet" id="s4" data-art="p4">
+  <div class="nb" style="left:42%;top:3%;max-width:33%">Of all the wonders he encountered, some of the greatest demanded nothing of him but his presence.</div>
+  <div class="nb dk" style="left:57%;top:27%;max-width:38%">He kept few companions, but those he welcomed into his world were fortunate to know the man beyond his silence.</div>
+  <div class="nb" style="left:57%;top:37.5%;max-width:38%">Behind the serious expression lived an unexpectedly entertaining man. Curious, generous, thoughtful, and far more remarkable than he realized.</div>
+  <div class="bub" style="left:29.5%;top:74.4%;max-width:15%">A side quest? Interesting.</div>
+  <div class="nb parch" style="left:49%;top:91.2%;max-width:47%">Beyond the mountains lies the secret of ten legendary relics. One final challenge awaits.</div>
+  <div class="sfx" style="left:60%;top:74.5%;font-size:3.6cqw;transform:rotate(-4deg)">GRRRRRR…</div>
+  <div class="sfx" style="left:57%;top:17%;font-size:3.6cqw;transform:rotate(-3deg)">FWOOOSH</div>
+</article>
+
+<article class="sheet" id="s5" data-art="p5">
+  <div class="nb" style="left:4%;top:2.6%;max-width:36%">His journey had taken him through kingdoms, ancient mysteries and lands beyond the imagination. Yet another adventure awaited.</div>
+  <div class="tbc" style="right:4.5%;top:2.6%;font-size:2.6cqw">To be continued...</div>
+  <div class="bub" style="left:5%;top:24.5%;max-width:19%">Another side quest?</div>
+  <div class="bub" style="left:56%;top:10%;max-width:26%">Only three questions? Challenge accepted.</div>
+  <div class="qcard big" style="left:58.5%;top:36%;width:38%;height:41%">
+    <div class="qt">New quest unlocked</div>
+    <h3>The Ten <b>Relics</b></h3>
+    <div class="k"><b>Classification</b>Secret side quest</div>
+    <div class="k"><b>Quest objective</b>Discover the true identity of the ten legendary relics.</div>
+    <div class="k"><b>The rules</b><ul><li>Locate the Keeper of the Ten Relics in your world.</li><li>You may ask her only three questions.</li><li>Choose your questions wisely.</li><li>She may answer only with yes, no, or perhaps.</li><li>Identify the treasure to claim your reward.</li></ul></div>
+    <div class="st"><div>Quest status: unlocked</div><div>Reward: 10 legendary relics</div><div>Difficulty: unknown</div><div>Location: beyond these pages</div></div>
+    <div class="hint"><b style="font:900 1cqw Archivo">Hint:</b> You already know the Keeper. She is the one who entrusted you with this manuscript. The final quest cannot be completed within these pages.</div>
+  </div>
+  <div class="nb dk" style="left:3.5%;top:79.2%;max-width:47%">His greatest adventures were not behind him. There were still worlds to discover, knowledge to acquire, laughter to share, and beautiful things awaiting his arrival. The Uncrowned King's story was far from complete.</div>
+  <div class="sfx" style="left:61%;top:29%;font-size:4cqw;transform:rotate(-8deg)">FWOOOOSH</div>
+</article>
+
+<!-- ===================== QUEST (interactive) ===================== -->
+<article class="sheet quest" id="s6"><div class="lay l6">
+  <div class="chh"><span class="n">Digital extra</span><h2>The relic quest</h2></div>
+  <div class="bigq">The<br>Ten Relics</div>
+  <div class="qhead"><span>Click a relic to inspect it</span><span>Skullgun · to be continued</span></div>
+  <div class="relics" id="relics"></div>
+  <div class="info">
+    <div>
+      <h4 id="infoT">What are the relics?</h4>
+      <p id="infoP">To learn what the relics are, he must seek the Keeper — <b id="keeperA">the Keeper</b> — in the real world, and ask three questions. No more. No fewer. The answers are not guaranteed to be serious.</p>
+    </div>
+    <div class="seals"><span>Questions asked</span><button class="seal" data-s="1">I</button><button class="seal" data-s="2">II</button><button class="seal" data-s="3">III</button><span id="sealMsg">Tap a seal each time you ask</span></div>
+  </div>
+  <div class="end5">
+    <div class="big">His legend is not finished.<br>The world has yet to find out all that he is.</div>
+    <div class="dd">Happy birthday, Mohammad, may you always carry that beautiful mind, kind heart and unwavering faith wherever life takes you.<br>— <span id="fromA">Rahaf</span></div>
+  </div>
+</div></article>
+
+<div id="ui"></div>
+<div id="zoom"></div><button id="zx">✕ Close</button>
+
+<script>
+/* ======== EDIT HERE ======== */
+const CONFIG = {
+  keeper: "Rahaf",   // the person he must find in real life (only appears at the end)
+  from:   "Rahaf",
+  lore: [
+    "Small enough to hide in a pocket. Large enough to start a rumor.",
+    "Each one is sealed. Each one is meant to be opened.",
+    "Not a weapon. Not a map. Strangely popular with travelers.",
+    "Best shared. Worst when forgotten at the bottom of a bag.",
+    "Handled gently, it rewards patience. Handled hastily, it rewards no one.",
+    "The ten are identical. This is not a coincidence.",
+    "Sold in every kingdom, yet treasured in none.",
+    "Quietly refreshing. Loudly underestimated.",
+    "Its only magic is a small, quiet pleasure.",
+    "Ten of the same. One purpose. Endless patience."
+  ],
+  art: { p1:"img/p1.jpg", p2:"img/p2.jpg", p4:"img/p4.jpg", p5:"img/p5.jpg" }   // p3 (the duel page) still needs its art
+};
+/* =========================== */
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+$$('.sheet[data-art]').forEach(sh=>{
+  const src=CONFIG.art[sh.dataset.art];
+  if(src){const im=new Image();im.className='bg';im.alt='';im.src=src;sh.prepend(im);const g=sh.querySelector('.wfg');if(g)g.remove()}
+});
+$('#keeperA').textContent=CONFIG.keeper; $('#fromA').textContent=CONFIG.from;
+
+$$('.sfx').forEach(s=>s.addEventListener('click',()=>{s.classList.remove('re');void s.offsetWidth;s.classList.add('re')}));
+
+const rel=$('#relics'), roman=['I','II','III','IV','V','VI','VII','VIII','IX','X'];
+CONFIG.lore.forEach((txt,i)=>{
+  const b=document.createElement('button'); b.className='rbtn';
+  b.innerHTML=`<svg viewBox="0 0 60 84"><use href="#relic"/></svg><span>${roman[i]}</span>`;
+  b.onclick=()=>{
+    $$('.rbtn').forEach(x=>x.classList.remove('sel')); b.classList.add('sel');
+    $('#infoT').textContent='Relic '+roman[i]; $('#infoP').textContent=txt;
+  };
+  rel.appendChild(b);
+});
+let broken=0;
+$$('.seal').forEach(s=>s.onclick=()=>{
+  if(s.classList.contains('broken')) return;
+  s.classList.add('broken'); broken++;
+  $('#sealMsg').textContent = broken<3 ? (3-broken)+' left' : 'No more questions. Choose wisely.';
+  if(broken===3){ $('#infoT').textContent='The questions are spent'; $('#infoP').textContent='The Keeper has answered. What the relics are is now for him alone to decide.'; }
+});
+
+const sheets=$$('.sheet'); const ui=$('#ui');
+ui.innerHTML=sheets.map((s,i)=>`<button data-i="${i}">${i<5?i+1:'Quest'}</button>`).join('');
+$$('button',ui).forEach(b=>b.onclick=()=>sheets[+b.dataset.i].scrollIntoView({behavior:'smooth',block:'center'}));
+function cur(){let best=0,d=1e9;sheets.forEach((s,i)=>{const r=s.getBoundingClientRect();const dd=Math.abs(r.top+r.height/2-innerHeight/2);if(dd<d){d=dd;best=i}});return best}
+addEventListener('scroll',()=>{
+  const h=document.documentElement; $('#bar').style.width=(scrollY/(h.scrollHeight-innerHeight)*100)+'%';
+  const c=cur(); $$('button',ui).forEach((b,i)=>b.classList.toggle('on',i===c));
+},{passive:true});
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown','PageDown'].includes(e.key)){e.preventDefault();sheets[Math.min(cur()+1,5)].scrollIntoView({behavior:'smooth',block:'center'})}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();sheets[Math.max(cur()-1,0)].scrollIntoView({behavior:'smooth',block:'center'})}
+});
+
+const zm=$('#zoom');
+function closeZ(){zm.classList.remove('on');zm.innerHTML='';document.body.style.overflow=''}
+$('#zx').onclick=closeZ;
+addEventListener('keydown',e=>{if(e.key==='Escape')closeZ()});
+$$('.sheet:not(.quest)').forEach(sh=>sh.addEventListener('click',()=>{
+  if(!matchMedia('(max-width:600px)').matches)return;
+  const c=sh.cloneNode(true);c.removeAttribute('id');zm.innerHTML='';zm.appendChild(c);
+  zm.classList.add('on');document.body.style.overflow='hidden';zm.scrollTop=0;zm.scrollLeft=0;
+}));
+dispatchEvent(new Event('scroll'));
+</script>
+</body>
+</html>
